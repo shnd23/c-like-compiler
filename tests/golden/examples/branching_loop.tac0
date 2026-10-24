@@ -1,0 +1,20 @@
+== tac ==
+    counter = 2
+    result = 0.0
+L0:
+    ifz counter goto L1
+    ifz counter goto L2
+    $t0 = result + 1.5
+    result = $t0
+    goto L3
+L2:
+    $t1 = result - 0.5
+    result = $t1
+L3:
+    $t2 = counter - 1
+    counter = $t2
+    goto L0
+L1:
+    print result
+--- stderr ---
+--- exit: 0 ---

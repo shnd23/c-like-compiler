@@ -1,0 +1,12 @@
+== tac ==
+    big = 9223372036854775807
+    print big
+    $t0 = big + 1
+    print $t0
+    $t1 = -big
+    $t2 = $t1 - 2
+    print $t2
+    $t3 = big * 2
+    print $t3
+--- stderr ---
+--- exit: 0 ---

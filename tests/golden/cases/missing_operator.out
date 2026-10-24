@@ -1,0 +1,6 @@
+--- stderr ---
+missing_operator.mc:3:7: error: missing an operator before 'y'
+    3 | x = x y;
+      |       ^
+compilation failed: 1 error
+--- exit: 1 ---

@@ -1,0 +1,28 @@
+== bytecode ==
+0000  PUSH  2
+0001  STORE 0 counter
+0002  PUSH  0.0
+0003  STORE 1 result
+0004  LOAD  0 counter
+0005  JZ    0022
+0006  LOAD  0 counter
+0007  JZ    0013
+0008  LOAD  1 result
+0009  PUSH  1.5
+0010  ADD
+0011  STORE 1 result
+0012  JMP   0017
+0013  LOAD  1 result
+0014  PUSH  0.5
+0015  SUB
+0016  STORE 1 result
+0017  LOAD  0 counter
+0018  PUSH  1
+0019  SUB
+0020  STORE 0 counter
+0021  JMP   0004
+0022  LOAD  1 result
+0023  PRINT
+0024  HALT
+--- stderr ---
+--- exit: 0 ---

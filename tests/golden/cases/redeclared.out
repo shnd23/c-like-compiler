@@ -1,0 +1,6 @@
+--- stderr ---
+redeclared.mc:2:5: error: 'x' is already declared in this scope (first declared at line 1)
+    2 | int x;
+      |     ^
+compilation failed: 1 error
+--- exit: 1 ---

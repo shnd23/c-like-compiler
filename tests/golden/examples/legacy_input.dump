@@ -1,0 +1,97 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  counter
+1:13    OPERATOR    =
+1:15    INTEGER     5
+1:16    DELIMITER   ;
+2:1     KEYWORD     float
+2:7     IDENTIFIER  total
+2:13    OPERATOR    =
+2:15    FLOAT       0.0
+2:18    DELIMITER   ;
+4:1     KEYWORD     if
+4:4     DELIMITER   (
+4:5     IDENTIFIER  counter
+4:12    DELIMITER   )
+4:14    DELIMITER   {
+5:5     IDENTIFIER  total
+5:11    OPERATOR    =
+5:13    IDENTIFIER  total
+5:19    OPERATOR    +
+5:21    FLOAT       10.5
+5:25    DELIMITER   ;
+6:1     DELIMITER   }
+6:3     KEYWORD     else
+6:8     DELIMITER   {
+7:5     IDENTIFIER  total
+7:11    OPERATOR    =
+7:13    IDENTIFIER  total
+7:19    OPERATOR    -
+7:21    FLOAT       1.0
+7:24    DELIMITER   ;
+8:1     DELIMITER   }
+10:1    KEYWORD     while
+10:7    DELIMITER   (
+10:8    IDENTIFIER  counter
+10:15   DELIMITER   )
+10:17   DELIMITER   {
+11:5    IDENTIFIER  total
+11:11   OPERATOR    =
+11:13   IDENTIFIER  total
+11:19   OPERATOR    +
+11:21   IDENTIFIER  counter
+11:29   OPERATOR    *
+11:31   INTEGER     2
+11:32   DELIMITER   ;
+12:5    IDENTIFIER  counter
+12:13   OPERATOR    =
+12:15   IDENTIFIER  counter
+12:23   OPERATOR    -
+12:25   INTEGER     1
+12:26   DELIMITER   ;
+13:1    DELIMITER   }
+15:1    KEYWORD     print
+15:6    DELIMITER   (
+15:7    IDENTIFIER  total
+15:12   DELIMITER   )
+15:13   DELIMITER   ;
+16:1    EOF         $
+== ast ==
+Program
+  VarDecl int counter
+    Number 5 : int
+  VarDecl float total
+    Number 0.0 : float
+  If
+    Var counter : int
+    Block
+      Assign total
+        Binary + : float
+          Var total : float
+          Number 10.5 : float
+    Block
+      Assign total
+        Binary - : float
+          Var total : float
+          Number 1.0 : float
+  While
+    Var counter : int
+    Block
+      Assign total
+        Binary + : float
+          Var total : float
+          Binary * : int
+            Var counter : int
+            Number 2 : int
+      Assign counter
+        Binary - : int
+          Var counter : int
+          Number 1 : int
+  Print
+    Var total : float
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   counter     int    0      1
+  1   total       float  0      2
+--- stderr ---
+--- exit: 0 ---

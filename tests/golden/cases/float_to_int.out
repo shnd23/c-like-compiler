@@ -1,0 +1,9 @@
+--- stderr ---
+float_to_int.mc:1:5: error: cannot assign float to int variable 'n'
+    1 | int n = 2.5;
+      |     ^
+float_to_int.mc:3:1: error: cannot assign float to int variable 'm'
+    3 | m = 1.5 + 1;
+      | ^
+compilation failed: 2 errors
+--- exit: 1 ---

@@ -1,0 +1,6 @@
+--- stderr ---
+print_missing_semi.mc:3:1: error: expected ';' before end of input
+    3 | 
+      | ^
+compilation failed: 1 error
+--- exit: 1 ---

@@ -1,0 +1,9 @@
+--- stderr ---
+undeclared.mc:1:1: error: undeclared variable 'y'
+    1 | y = 3;
+      | ^
+undeclared.mc:2:7: error: undeclared variable 'z'
+    2 | print(z);
+      |       ^
+compilation failed: 2 errors
+--- exit: 1 ---

@@ -1,0 +1,6 @@
+--- stderr ---
+int_too_large.mc:1:11: error: integer literal '99999999999999999999' is too large
+    1 | int big = 99999999999999999999;
+      |           ^
+compilation failed: 1 error
+--- exit: 1 ---

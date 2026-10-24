@@ -1,0 +1,6 @@
+--- stderr ---
+missing_semicolon.mc:2:1: error: expected ';' before 'int'
+    2 | int y = 6;
+      | ^
+compilation failed: 1 error
+--- exit: 1 ---

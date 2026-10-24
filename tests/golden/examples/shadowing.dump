@@ -1,0 +1,73 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  x
+1:7     OPERATOR    =
+1:9     INTEGER     1
+1:10    DELIMITER   ;
+2:1     KEYWORD     print
+2:6     DELIMITER   (
+2:7     IDENTIFIER  x
+2:8     DELIMITER   )
+2:9     DELIMITER   ;
+4:1     DELIMITER   {
+5:5     KEYWORD     int
+5:9     IDENTIFIER  x
+5:11    OPERATOR    =
+5:13    INTEGER     2
+5:14    DELIMITER   ;
+6:5     KEYWORD     print
+6:10    DELIMITER   (
+6:11    IDENTIFIER  x
+6:12    DELIMITER   )
+6:13    DELIMITER   ;
+7:5     DELIMITER   {
+8:9     KEYWORD     float
+8:15    IDENTIFIER  x
+8:17    OPERATOR    =
+8:19    FLOAT       3.5
+8:22    DELIMITER   ;
+9:9     KEYWORD     print
+9:14    DELIMITER   (
+9:15    IDENTIFIER  x
+9:16    DELIMITER   )
+9:17    DELIMITER   ;
+10:5    DELIMITER   }
+11:5    KEYWORD     print
+11:10   DELIMITER   (
+11:11   IDENTIFIER  x
+11:12   DELIMITER   )
+11:13   DELIMITER   ;
+12:1    DELIMITER   }
+14:1    KEYWORD     print
+14:6    DELIMITER   (
+14:7    IDENTIFIER  x
+14:8    DELIMITER   )
+14:9    DELIMITER   ;
+15:1    EOF         $
+== ast ==
+Program
+  VarDecl int x
+    Number 1 : int
+  Print
+    Var x : int
+  Block
+    VarDecl int x
+      Number 2 : int
+    Print
+      Var x : int
+    Block
+      VarDecl float x
+        Number 3.5 : float
+      Print
+        Var x : float
+    Print
+      Var x : int
+  Print
+    Var x : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   x           int    0      1
+  1   x.1         int    1      5
+  2   x.2         float  2      8
+--- stderr ---
+--- exit: 0 ---

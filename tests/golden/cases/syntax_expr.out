@@ -1,0 +1,6 @@
+--- stderr ---
+syntax_expr.mc:2:9: error: unexpected token ';'
+    2 | x = x + ;
+      |         ^
+compilation failed: 1 error
+--- exit: 1 ---

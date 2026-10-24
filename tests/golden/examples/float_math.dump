@@ -1,0 +1,146 @@
+== tokens ==
+1:1     KEYWORD     float
+1:7     IDENTIFIER  guess
+1:13    OPERATOR    =
+1:15    FLOAT       1.0
+1:18    DELIMITER   ;
+2:1     KEYWORD     int
+2:5     IDENTIFIER  round
+2:11    OPERATOR    =
+2:13    INTEGER     0
+2:14    DELIMITER   ;
+4:1     KEYWORD     while
+4:7     DELIMITER   (
+4:8     IDENTIFIER  round
+4:14    OPERATOR    <
+4:16    INTEGER     6
+4:17    DELIMITER   )
+4:19    DELIMITER   {
+5:5     IDENTIFIER  guess
+5:11    OPERATOR    =
+5:13    DELIMITER   (
+5:14    IDENTIFIER  guess
+5:20    OPERATOR    +
+5:22    INTEGER     2
+5:24    OPERATOR    /
+5:26    IDENTIFIER  guess
+5:31    DELIMITER   )
+5:33    OPERATOR    /
+5:35    INTEGER     2
+5:36    DELIMITER   ;
+6:5     IDENTIFIER  round
+6:11    OPERATOR    =
+6:13    IDENTIFIER  round
+6:19    OPERATOR    +
+6:21    INTEGER     1
+6:22    DELIMITER   ;
+7:1     DELIMITER   }
+9:1     KEYWORD     print
+9:6     DELIMITER   (
+9:7     IDENTIFIER  guess
+9:12    DELIMITER   )
+9:13    DELIMITER   ;
+11:1    KEYWORD     int
+11:5    IDENTIFIER  total
+11:11   OPERATOR    =
+11:13   INTEGER     17
+11:15   DELIMITER   ;
+12:1    KEYWORD     int
+12:5    IDENTIFIER  count
+12:11   OPERATOR    =
+12:13   INTEGER     4
+12:14   DELIMITER   ;
+13:1    KEYWORD     float
+13:7    IDENTIFIER  average
+13:15   OPERATOR    =
+13:17   IDENTIFIER  total
+13:23   OPERATOR    /
+13:25   IDENTIFIER  count
+13:30   DELIMITER   ;
+14:1    KEYWORD     print
+14:6    DELIMITER   (
+14:7    IDENTIFIER  average
+14:14   DELIMITER   )
+14:15   DELIMITER   ;
+15:1    IDENTIFIER  average
+15:9    OPERATOR    =
+15:11   IDENTIFIER  total
+15:17   OPERATOR    /
+15:19   FLOAT       4.0
+15:22   DELIMITER   ;
+16:1    KEYWORD     print
+16:6    DELIMITER   (
+16:7    IDENTIFIER  average
+16:14   DELIMITER   )
+16:15   DELIMITER   ;
+17:1    KEYWORD     print
+17:6    DELIMITER   (
+17:7    OPERATOR    -
+17:8    IDENTIFIER  average
+17:15   DELIMITER   )
+17:16   DELIMITER   ;
+18:1    KEYWORD     print
+18:6    DELIMITER   (
+18:7    FLOAT       1.0
+18:11   OPERATOR    /
+18:13   FLOAT       3.0
+18:16   DELIMITER   )
+18:17   DELIMITER   ;
+19:1    EOF         $
+== ast ==
+Program
+  VarDecl float guess
+    Number 1.0 : float
+  VarDecl int round
+    Number 0 : int
+  While
+    Binary < : int
+      Var round : int
+      Number 6 : int
+    Block
+      Assign guess
+        Binary / : float
+          Binary + : float
+            Var guess : float
+            Binary / : float
+              Number 2 : int
+              Var guess : float
+          Number 2 : int
+      Assign round
+        Binary + : int
+          Var round : int
+          Number 1 : int
+  Print
+    Var guess : float
+  VarDecl int total
+    Number 17 : int
+  VarDecl int count
+    Number 4 : int
+  VarDecl float average
+    Binary / : int
+      Var total : int
+      Var count : int
+  Print
+    Var average : float
+  Assign average
+    Binary / : float
+      Var total : int
+      Number 4.0 : float
+  Print
+    Var average : float
+  Print
+    Unary - : float
+      Var average : float
+  Print
+    Binary / : float
+      Number 1.0 : float
+      Number 3.0 : float
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   guess       float  0      1
+  1   round       int    0      2
+  2   total       int    0      11
+  3   count       int    0      12
+  4   average     float  0      13
+--- stderr ---
+--- exit: 0 ---

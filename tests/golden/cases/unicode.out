@@ -1,0 +1,12 @@
+--- stderr ---
+unicode.mc:1:8: error: unexpected character 'é'
+    1 | int café = 1;
+      |        ^
+unicode.mc:2:11: error: unexpected character '¬'
+    2 | int y = 2 ¬ 3;
+      |           ^
+unicode.mc:3:10: error: unexpected character '€'
+    3 | 	int z = €;
+      | 	        ^
+compilation failed: 3 errors
+--- exit: 1 ---

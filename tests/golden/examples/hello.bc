@@ -1,0 +1,16 @@
+== bytecode ==
+0000  PUSH  42
+0001  PRINT
+0002  PUSH  3.5
+0003  PRINT
+0004  PUSH  7
+0005  PRINT
+0006  PUSH  9
+0007  PRINT
+0008  PUSH  3
+0009  PRINT
+0010  PUSH  3.5
+0011  PRINT
+0012  HALT
+--- stderr ---
+--- exit: 0 ---

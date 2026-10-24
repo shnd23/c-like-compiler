@@ -1,0 +1,58 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  big
+1:9     OPERATOR    =
+1:11    INTEGER     9223372036854775807
+1:30    DELIMITER   ;
+2:1     KEYWORD     print
+2:6     DELIMITER   (
+2:7     IDENTIFIER  big
+2:10    DELIMITER   )
+2:11    DELIMITER   ;
+3:1     KEYWORD     print
+3:6     DELIMITER   (
+3:7     IDENTIFIER  big
+3:11    OPERATOR    +
+3:13    INTEGER     1
+3:14    DELIMITER   )
+3:15    DELIMITER   ;
+4:1     KEYWORD     print
+4:6     DELIMITER   (
+4:7     OPERATOR    -
+4:8     IDENTIFIER  big
+4:12    OPERATOR    -
+4:14    INTEGER     2
+4:15    DELIMITER   )
+4:16    DELIMITER   ;
+5:1     KEYWORD     print
+5:6     DELIMITER   (
+5:7     IDENTIFIER  big
+5:11    OPERATOR    *
+5:13    INTEGER     2
+5:14    DELIMITER   )
+5:15    DELIMITER   ;
+6:1     EOF         $
+== ast ==
+Program
+  VarDecl int big
+    Number 9223372036854775807 : int
+  Print
+    Var big : int
+  Print
+    Binary + : int
+      Var big : int
+      Number 1 : int
+  Print
+    Binary - : int
+      Unary - : int
+        Var big : int
+      Number 2 : int
+  Print
+    Binary * : int
+      Var big : int
+      Number 2 : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   big         int    0      1
+--- stderr ---
+--- exit: 0 ---

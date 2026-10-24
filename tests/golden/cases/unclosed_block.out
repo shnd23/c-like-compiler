@@ -1,0 +1,6 @@
+--- stderr ---
+unclosed_block.mc:4:1: error: expected '}' before end of input
+    4 | 
+      | ^
+compilation failed: 1 error
+--- exit: 1 ---

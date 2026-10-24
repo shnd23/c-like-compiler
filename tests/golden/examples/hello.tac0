@@ -1,0 +1,16 @@
+== tac ==
+    print 42
+    print 3.5
+    $t0 = 2 * 3
+    $t1 = 1 + $t0
+    print $t1
+    $t2 = 1 + 2
+    $t3 = $t2 * 3
+    print $t3
+    $t4 = 7 / 2
+    print $t4
+    $t5 = float(2)
+    $t6 = 7.0 / $t5
+    print $t6
+--- stderr ---
+--- exit: 0 ---

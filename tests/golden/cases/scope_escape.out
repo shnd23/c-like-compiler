@@ -1,0 +1,6 @@
+--- stderr ---
+scope_escape.mc:5:7: error: undeclared variable 'y'
+    5 | print(y);
+      |       ^
+compilation failed: 1 error
+--- exit: 1 ---

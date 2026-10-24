@@ -1,0 +1,93 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  n
+1:7     OPERATOR    =
+1:9     INTEGER     1
+1:10    DELIMITER   ;
+2:1     KEYWORD     int
+2:5     IDENTIFIER  product
+2:13    OPERATOR    =
+2:15    INTEGER     1
+2:16    DELIMITER   ;
+4:1     KEYWORD     while
+4:7     DELIMITER   (
+4:8     IDENTIFIER  n
+4:10    OPERATOR    <=
+4:13    INTEGER     20
+4:15    DELIMITER   )
+4:17    DELIMITER   {
+5:5     IDENTIFIER  product
+5:13    OPERATOR    =
+5:15    IDENTIFIER  product
+5:23    OPERATOR    *
+5:25    IDENTIFIER  n
+5:26    DELIMITER   ;
+6:5     KEYWORD     if
+6:8     DELIMITER   (
+6:9     IDENTIFIER  n
+6:11    OPERATOR    ==
+6:14    INTEGER     5
+6:16    OPERATOR    ||
+6:19    IDENTIFIER  n
+6:21    OPERATOR    ==
+6:24    INTEGER     10
+6:27    OPERATOR    ||
+6:30    IDENTIFIER  n
+6:32    OPERATOR    ==
+6:35    INTEGER     20
+6:37    DELIMITER   )
+6:39    DELIMITER   {
+7:9     KEYWORD     print
+7:14    DELIMITER   (
+7:15    IDENTIFIER  product
+7:22    DELIMITER   )
+7:23    DELIMITER   ;
+8:5     DELIMITER   }
+9:5     IDENTIFIER  n
+9:7     OPERATOR    =
+9:9     IDENTIFIER  n
+9:11    OPERATOR    +
+9:13    INTEGER     1
+9:14    DELIMITER   ;
+10:1    DELIMITER   }
+11:1    EOF         $
+== ast ==
+Program
+  VarDecl int n
+    Number 1 : int
+  VarDecl int product
+    Number 1 : int
+  While
+    Binary <= : int
+      Var n : int
+      Number 20 : int
+    Block
+      Assign product
+        Binary * : int
+          Var product : int
+          Var n : int
+      If
+        Binary || : int
+          Binary || : int
+            Binary == : int
+              Var n : int
+              Number 5 : int
+            Binary == : int
+              Var n : int
+              Number 10 : int
+          Binary == : int
+            Var n : int
+            Number 20 : int
+        Block
+          Print
+            Var product : int
+      Assign n
+        Binary + : int
+          Var n : int
+          Number 1 : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   n           int    0      1
+  1   product     int    0      2
+--- stderr ---
+--- exit: 0 ---

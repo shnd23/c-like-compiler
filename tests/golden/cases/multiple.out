@@ -1,0 +1,9 @@
+--- stderr ---
+multiple.mc:1:9: error: unexpected token ';'
+    1 | int a = ;
+      |         ^
+multiple.mc:5:11: error: a declaration cannot be the body of 'while'; wrap it in a block
+    5 | while (1) int z = 3;
+      |           ^
+compilation failed: 2 errors
+--- exit: 1 ---

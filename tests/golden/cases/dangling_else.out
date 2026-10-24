@@ -1,0 +1,6 @@
+--- stderr ---
+dangling_else.mc:10:1: error: 'else' without a matching 'if'
+   10 | else {
+      | ^
+compilation failed: 1 error
+--- exit: 1 ---

@@ -1,0 +1,86 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  a
+1:7     OPERATOR    =
+1:9     INTEGER     0
+1:10    DELIMITER   ;
+2:1     KEYWORD     int
+2:5     IDENTIFIER  b
+2:7     OPERATOR    =
+2:9     INTEGER     1
+2:10    DELIMITER   ;
+3:1     KEYWORD     int
+3:5     IDENTIFIER  i
+3:7     OPERATOR    =
+3:9     INTEGER     0
+3:10    DELIMITER   ;
+5:1     KEYWORD     while
+5:7     DELIMITER   (
+5:8     IDENTIFIER  i
+5:10    OPERATOR    <
+5:12    INTEGER     15
+5:14    DELIMITER   )
+5:16    DELIMITER   {
+6:5     KEYWORD     print
+6:10    DELIMITER   (
+6:11    IDENTIFIER  a
+6:12    DELIMITER   )
+6:13    DELIMITER   ;
+7:5     KEYWORD     int
+7:9     IDENTIFIER  next
+7:14    OPERATOR    =
+7:16    IDENTIFIER  a
+7:18    OPERATOR    +
+7:20    IDENTIFIER  b
+7:21    DELIMITER   ;
+8:5     IDENTIFIER  a
+8:7     OPERATOR    =
+8:9     IDENTIFIER  b
+8:10    DELIMITER   ;
+9:5     IDENTIFIER  b
+9:7     OPERATOR    =
+9:9     IDENTIFIER  next
+9:13    DELIMITER   ;
+10:5    IDENTIFIER  i
+10:7    OPERATOR    =
+10:9    IDENTIFIER  i
+10:11   OPERATOR    +
+10:13   INTEGER     1
+10:14   DELIMITER   ;
+11:1    DELIMITER   }
+12:1    EOF         $
+== ast ==
+Program
+  VarDecl int a
+    Number 0 : int
+  VarDecl int b
+    Number 1 : int
+  VarDecl int i
+    Number 0 : int
+  While
+    Binary < : int
+      Var i : int
+      Number 15 : int
+    Block
+      Print
+        Var a : int
+      VarDecl int next
+        Binary + : int
+          Var a : int
+          Var b : int
+      Assign a
+        Var b : int
+      Assign b
+        Var next : int
+      Assign i
+        Binary + : int
+          Var i : int
+          Number 1 : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   a           int    0      1
+  1   b           int    0      2
+  2   i           int    0      3
+  3   next        int    1      7
+--- stderr ---
+--- exit: 0 ---

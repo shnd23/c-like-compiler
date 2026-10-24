@@ -1,0 +1,99 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  row
+1:9     OPERATOR    =
+1:11    INTEGER     1
+1:12    DELIMITER   ;
+3:1     KEYWORD     while
+3:7     DELIMITER   (
+3:8     IDENTIFIER  row
+3:12    OPERATOR    <=
+3:15    INTEGER     5
+3:16    DELIMITER   )
+3:18    DELIMITER   {
+4:5     KEYWORD     int
+4:9     IDENTIFIER  col
+4:13    OPERATOR    =
+4:15    INTEGER     1
+4:16    DELIMITER   ;
+5:5     KEYWORD     int
+5:9     IDENTIFIER  line_total
+5:20    OPERATOR    =
+5:22    INTEGER     0
+5:23    DELIMITER   ;
+6:5     KEYWORD     while
+6:11    DELIMITER   (
+6:12    IDENTIFIER  col
+6:16    OPERATOR    <=
+6:19    INTEGER     5
+6:20    DELIMITER   )
+6:22    DELIMITER   {
+7:9     IDENTIFIER  line_total
+7:20    OPERATOR    =
+7:22    IDENTIFIER  line_total
+7:33    OPERATOR    +
+7:35    IDENTIFIER  row
+7:39    OPERATOR    *
+7:41    IDENTIFIER  col
+7:44    DELIMITER   ;
+8:9     IDENTIFIER  col
+8:13    OPERATOR    =
+8:15    IDENTIFIER  col
+8:19    OPERATOR    +
+8:21    INTEGER     1
+8:22    DELIMITER   ;
+9:5     DELIMITER   }
+10:5    KEYWORD     print
+10:10   DELIMITER   (
+10:11   IDENTIFIER  line_total
+10:21   DELIMITER   )
+10:22   DELIMITER   ;
+11:5    IDENTIFIER  row
+11:9    OPERATOR    =
+11:11   IDENTIFIER  row
+11:15   OPERATOR    +
+11:17   INTEGER     1
+11:18   DELIMITER   ;
+12:1    DELIMITER   }
+13:1    EOF         $
+== ast ==
+Program
+  VarDecl int row
+    Number 1 : int
+  While
+    Binary <= : int
+      Var row : int
+      Number 5 : int
+    Block
+      VarDecl int col
+        Number 1 : int
+      VarDecl int line_total
+        Number 0 : int
+      While
+        Binary <= : int
+          Var col : int
+          Number 5 : int
+        Block
+          Assign line_total
+            Binary + : int
+              Var line_total : int
+              Binary * : int
+                Var row : int
+                Var col : int
+          Assign col
+            Binary + : int
+              Var col : int
+              Number 1 : int
+      Print
+        Var line_total : int
+      Assign row
+        Binary + : int
+          Var row : int
+          Number 1 : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   row         int    0      1
+  1   col         int    1      4
+  2   line_total  int    1      5
+--- stderr ---
+--- exit: 0 ---

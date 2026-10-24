@@ -1,0 +1,6 @@
+--- stderr ---
+mod_float.mc:2:11: error: operator '%' requires integer operands
+    2 | int r = f % 2;
+      |           ^
+compilation failed: 1 error
+--- exit: 1 ---

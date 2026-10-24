@@ -1,0 +1,24 @@
+== tac ==
+    row = 1
+L0:
+    $t0 = row <= 5
+    ifz $t0 goto L1
+    col = 1
+    line_total = 0
+L2:
+    $t1 = col <= 5
+    ifz $t1 goto L3
+    $t2 = row * col
+    $t3 = line_total + $t2
+    line_total = $t3
+    $t4 = col + 1
+    col = $t4
+    goto L2
+L3:
+    print line_total
+    $t5 = row + 1
+    row = $t5
+    goto L0
+L1:
+--- stderr ---
+--- exit: 0 ---

@@ -1,0 +1,9 @@
+--- stderr ---
+bad_chars.mc:1:11: error: unexpected character '$'
+    1 | int a = 4 $ 2;
+      |           ^
+bad_chars.mc:2:11: error: unexpected character '&' (did you mean '&&'?)
+    2 | int b = 3 & 1;
+      |           ^
+compilation failed: 2 errors
+--- exit: 1 ---

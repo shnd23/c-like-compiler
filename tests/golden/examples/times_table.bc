@@ -1,0 +1,42 @@
+== bytecode ==
+0000  PUSH  1
+0001  STORE 0 row
+0002  LOAD  0 row
+0003  PUSH  5
+0004  LE
+0005  STORE 3 $t0
+0006  LOAD  3 $t0
+0007  JZ    0038
+0008  PUSH  1
+0009  STORE 1 col
+0010  PUSH  0
+0011  STORE 2 line_total
+0012  LOAD  1 col
+0013  PUSH  5
+0014  LE
+0015  STORE 4 $t1
+0016  LOAD  4 $t1
+0017  JZ    0031
+0018  LOAD  0 row
+0019  LOAD  1 col
+0020  MUL
+0021  STORE 5 $t2
+0022  LOAD  2 line_total
+0023  LOAD  5 $t2
+0024  ADD
+0025  STORE 2 line_total
+0026  LOAD  1 col
+0027  PUSH  1
+0028  ADD
+0029  STORE 1 col
+0030  JMP   0012
+0031  LOAD  2 line_total
+0032  PRINT
+0033  LOAD  0 row
+0034  PUSH  1
+0035  ADD
+0036  STORE 0 row
+0037  JMP   0002
+0038  HALT
+--- stderr ---
+--- exit: 0 ---

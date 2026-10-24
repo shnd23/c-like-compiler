@@ -1,0 +1,83 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  counter
+1:13    OPERATOR    =
+1:15    INTEGER     2
+1:16    DELIMITER   ;
+2:1     KEYWORD     float
+2:7     IDENTIFIER  result
+2:14    OPERATOR    =
+2:16    FLOAT       0.0
+2:19    DELIMITER   ;
+4:1     KEYWORD     while
+4:7     DELIMITER   (
+4:8     IDENTIFIER  counter
+4:15    DELIMITER   )
+4:17    DELIMITER   {
+5:5     KEYWORD     if
+5:8     DELIMITER   (
+5:9     IDENTIFIER  counter
+5:16    DELIMITER   )
+5:18    DELIMITER   {
+6:9     IDENTIFIER  result
+6:16    OPERATOR    =
+6:18    IDENTIFIER  result
+6:25    OPERATOR    +
+6:27    FLOAT       1.5
+6:30    DELIMITER   ;
+7:5     DELIMITER   }
+7:7     KEYWORD     else
+7:12    DELIMITER   {
+8:9     IDENTIFIER  result
+8:16    OPERATOR    =
+8:18    IDENTIFIER  result
+8:25    OPERATOR    -
+8:27    FLOAT       0.5
+8:30    DELIMITER   ;
+9:5     DELIMITER   }
+10:5    IDENTIFIER  counter
+10:13   OPERATOR    =
+10:15   IDENTIFIER  counter
+10:23   OPERATOR    -
+10:25   INTEGER     1
+10:26   DELIMITER   ;
+11:1    DELIMITER   }
+13:1    KEYWORD     print
+13:6    DELIMITER   (
+13:7    IDENTIFIER  result
+13:13   DELIMITER   )
+13:14   DELIMITER   ;
+14:1    EOF         $
+== ast ==
+Program
+  VarDecl int counter
+    Number 2 : int
+  VarDecl float result
+    Number 0.0 : float
+  While
+    Var counter : int
+    Block
+      If
+        Var counter : int
+        Block
+          Assign result
+            Binary + : float
+              Var result : float
+              Number 1.5 : float
+        Block
+          Assign result
+            Binary - : float
+              Var result : float
+              Number 0.5 : float
+      Assign counter
+        Binary - : int
+          Var counter : int
+          Number 1 : int
+  Print
+    Var result : float
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   counter     int    0      1
+  1   result      float  0      2
+--- stderr ---
+--- exit: 0 ---

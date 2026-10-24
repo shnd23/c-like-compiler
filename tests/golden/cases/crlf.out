@@ -1,0 +1,6 @@
+--- stderr ---
+crlf.mc:3:1: error: expected ';' before 'print'
+    3 | print(x);
+      | ^
+compilation failed: 1 error
+--- exit: 1 ---

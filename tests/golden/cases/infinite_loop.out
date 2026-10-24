@@ -1,0 +1,3 @@
+--- stderr ---
+runtime error: step limit exceeded (possible infinite loop)
+--- exit: 3 ---

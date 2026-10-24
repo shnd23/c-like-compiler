@@ -1,0 +1,68 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  a
+1:7     OPERATOR    =
+1:9     INTEGER     1071
+1:13    DELIMITER   ;
+2:1     KEYWORD     int
+2:5     IDENTIFIER  b
+2:7     OPERATOR    =
+2:9     INTEGER     462
+2:12    DELIMITER   ;
+4:1     KEYWORD     while
+4:7     DELIMITER   (
+4:8     IDENTIFIER  b
+4:10    OPERATOR    !=
+4:13    INTEGER     0
+4:14    DELIMITER   )
+4:16    DELIMITER   {
+5:5     KEYWORD     int
+5:9     IDENTIFIER  r
+5:11    OPERATOR    =
+5:13    IDENTIFIER  a
+5:15    OPERATOR    %
+5:17    IDENTIFIER  b
+5:18    DELIMITER   ;
+6:5     IDENTIFIER  a
+6:7     OPERATOR    =
+6:9     IDENTIFIER  b
+6:10    DELIMITER   ;
+7:5     IDENTIFIER  b
+7:7     OPERATOR    =
+7:9     IDENTIFIER  r
+7:10    DELIMITER   ;
+8:1     DELIMITER   }
+10:1    KEYWORD     print
+10:6    DELIMITER   (
+10:7    IDENTIFIER  a
+10:8    DELIMITER   )
+10:9    DELIMITER   ;
+11:1    EOF         $
+== ast ==
+Program
+  VarDecl int a
+    Number 1071 : int
+  VarDecl int b
+    Number 462 : int
+  While
+    Binary != : int
+      Var b : int
+      Number 0 : int
+    Block
+      VarDecl int r
+        Binary % : int
+          Var a : int
+          Var b : int
+      Assign a
+        Var b : int
+      Assign b
+        Var r : int
+  Print
+    Var a : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   a           int    0      1
+  1   b           int    0      2
+  2   r           int    1      5
+--- stderr ---
+--- exit: 0 ---

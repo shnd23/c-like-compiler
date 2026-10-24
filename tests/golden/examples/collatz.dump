@@ -1,0 +1,99 @@
+== tokens ==
+1:1     KEYWORD     int
+1:5     IDENTIFIER  n
+1:7     OPERATOR    =
+1:9     INTEGER     27
+1:11    DELIMITER   ;
+2:1     KEYWORD     int
+2:5     IDENTIFIER  steps
+2:11    OPERATOR    =
+2:13    INTEGER     0
+2:14    DELIMITER   ;
+4:1     KEYWORD     while
+4:7     DELIMITER   (
+4:8     IDENTIFIER  n
+4:10    OPERATOR    !=
+4:13    INTEGER     1
+4:14    DELIMITER   )
+4:16    DELIMITER   {
+5:5     KEYWORD     if
+5:8     DELIMITER   (
+5:9     IDENTIFIER  n
+5:11    OPERATOR    %
+5:13    INTEGER     2
+5:15    OPERATOR    ==
+5:18    INTEGER     0
+5:19    DELIMITER   )
+5:21    DELIMITER   {
+6:9     IDENTIFIER  n
+6:11    OPERATOR    =
+6:13    IDENTIFIER  n
+6:15    OPERATOR    /
+6:17    INTEGER     2
+6:18    DELIMITER   ;
+7:5     DELIMITER   }
+7:7     KEYWORD     else
+7:12    DELIMITER   {
+8:9     IDENTIFIER  n
+8:11    OPERATOR    =
+8:13    INTEGER     3
+8:15    OPERATOR    *
+8:17    IDENTIFIER  n
+8:19    OPERATOR    +
+8:21    INTEGER     1
+8:22    DELIMITER   ;
+9:5     DELIMITER   }
+10:5    IDENTIFIER  steps
+10:11   OPERATOR    =
+10:13   IDENTIFIER  steps
+10:19   OPERATOR    +
+10:21   INTEGER     1
+10:22   DELIMITER   ;
+11:1    DELIMITER   }
+13:1    KEYWORD     print
+13:6    DELIMITER   (
+13:7    IDENTIFIER  steps
+13:12   DELIMITER   )
+13:13   DELIMITER   ;
+14:1    EOF         $
+== ast ==
+Program
+  VarDecl int n
+    Number 27 : int
+  VarDecl int steps
+    Number 0 : int
+  While
+    Binary != : int
+      Var n : int
+      Number 1 : int
+    Block
+      If
+        Binary == : int
+          Binary % : int
+            Var n : int
+            Number 2 : int
+          Number 0 : int
+        Block
+          Assign n
+            Binary / : int
+              Var n : int
+              Number 2 : int
+        Block
+          Assign n
+            Binary + : int
+              Binary * : int
+                Number 3 : int
+                Var n : int
+              Number 1 : int
+      Assign steps
+        Binary + : int
+          Var steps : int
+          Number 1 : int
+  Print
+    Var steps : int
+== symbols ==
+  ID  NAME        TYPE   DEPTH  LINE
+  0   n           int    0      1
+  1   steps       int    0      2
+--- stderr ---
+--- exit: 0 ---
